@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://thymeleaf.org">
+<head>
+    <style>
+        .rooms{
+        padding: 10px;
+        }
+        .butt{
+        font-size: 15px;
+        margin-top: 10px;
+        }
+        .cnvs{
+        border: 1px solid black;
+        }
+
+    </style>
+    <meta charset="UTF-8">
+    <link rel="icon" href="data:,">
+    <title>Rooms</title>
+</head>
+
+<body>
+
+<div>
+    <canvas class="cnvs" id="myCanvas" width="300px" height="300px"></canvas>
+
+</div>
+
+<div>
+    <form th:method="POST">
+        <label for="string"></label>
+        <input type="text" id="string" name="request" placeholder="Enter points">
+        <button type="submit">Create!</button>
+    </form>
+    <span style="color: red" th:text="${message}"></span>
+</div>
+
+
+<div class="rooms2" th:each="room, iter : ${rooms}">
+    <div class="forCheck">
+        <tr>
+            <input class="checkbox" th:value="${room.getPoints}" type="checkbox">
+            <td th:text="${iter.index + 1}"></td>
+            <td th:text="${room.getPoints}"></td>
+            <td><a th:href="@{/rooms/room-delete/{id}(id=${room.getId})}">Delete</a></td>
+            <td><a th:href="@{/rooms/update/{id}(id=${room.getId})}">Update</a></td>
+        </tr>
+    </div>
+</div>
+<div class="butt">
+    <tr>
+        <td>
+            <button onclick="getCheckedCheckBoxes()">Paint</button>
+        </td>
+        <td>
+            <button value="Refresh Page" onClick="window.location.reload();">Reset</button>
+        </td>
+    </tr>
+</div>
+</body>
+
+<script th:inline="javascript">
+                var canvas = document.getElementById("myCanvas");
+                var ctx = canvas.getContext("2d");
+
+
+function getCheckedCheckBoxes() {
+  var checkboxes = document.getElementsByClassName('checkbox');
+
+  for (var index = 0; index < checkboxes.length; index++) {
+     if (checkboxes[index].checked) {
+
+        var checkboxValue = checkboxes[index].value;
+
+        var newString = checkboxValue.replace(/[^,\d]/g, '');
+
+        var separator = ',';
+        var after = newString.split(separator);
+
+        var arr = [];
+        for(var step = 0; step < after.length; step++){
+            arr.push(after[step]);
+        }
+
+            ctx.beginPath();
+            ctx.moveTo(arr[0], arr[1]);
+            ctx.lineTo(arr[2], arr[3]);
+            ctx.lineTo(arr[4], arr[5]);
+            ctx.lineTo(arr[6], arr[7]);
+            ctx.closePath();
+            ctx.stroke();
+
+     }
+  }
+
+}
+
+
+</script>
+
+</html>
