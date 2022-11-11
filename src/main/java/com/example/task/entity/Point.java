@@ -1,4 +1,4 @@
-package room.task.entity;
+package com.example.task.entity;
 
 import javax.persistence.*;
 
@@ -8,7 +8,6 @@ public class Point {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id")
-
     private int id;
     @Column(name = "y")
     private int y;

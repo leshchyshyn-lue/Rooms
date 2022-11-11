@@ -1,8 +1,8 @@
-package room.task.repository;
+package com.example.task.repository;
 
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
-import room.task.entity.Point;
+import com.example.task.entity.Point;
 
 
 @Repository

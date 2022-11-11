@@ -1,4 +1,4 @@
-package room.task.exception;
+package com.example.task.exception;
 
 public class InvalidInputException extends Exception{
     public InvalidInputException(String message){

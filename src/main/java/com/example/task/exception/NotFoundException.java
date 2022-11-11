@@ -1,4 +1,4 @@
-package room.task.exception;
+package com.example.task.exception;
 
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.ResponseStatus;

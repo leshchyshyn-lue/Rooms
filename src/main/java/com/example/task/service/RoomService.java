@@ -1,13 +1,13 @@
-package room.task.service;
+package com.example.task.service;
 
+import com.example.task.exception.InvalidInputException;
+import com.example.task.exception.NotFoundException;
+import com.example.task.repository.PointRepository;
+import com.example.task.repository.RoomRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-import room.task.entity.Point;
-import room.task.entity.Room;
-import room.task.exception.InvalidInputException;
-import room.task.exception.NotFoundException;
-import room.task.repository.PointRepository;
-import room.task.repository.RoomRepository;
+import com.example.task.entity.Point;
+import com.example.task.entity.Room;
 
 import java.util.List;
 
@@ -49,10 +49,7 @@ public class RoomService {
     }
 
 
-    public Room updateRoomById(int id, Room newRoom) throws NotFoundException, InvalidInputException {
-        if (newRoom.getPoints().size() < 4) {
-            throw new InvalidInputException("Invalid input");
-        }
+    public Room updateRoomById(int id, Room newRoom) throws NotFoundException {
         Room room = findRoomById(id);
         pointRepository.removeAllPointsByRoomId(room.getId());
         for (Point p : newRoom.getPoints()) {
@@ -69,6 +66,7 @@ public class RoomService {
 
     public void deleteRoomById(int id) throws NotFoundException {
         findRoomById(id);
+        pointRepository.removeAllPointsByRoomId(id);
         roomRepository.deleteById(id);
     }
 }
