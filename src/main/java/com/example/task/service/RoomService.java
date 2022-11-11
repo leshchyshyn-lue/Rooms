@@ -28,8 +28,7 @@ public class RoomService {
     }
 
     public List<Room> findAllRooms() {
-        List<Room> rooms = roomRepository.findAll();
-        return rooms;
+        return roomRepository.findAll();
     }
 
     public Room createRoom(Room room) {

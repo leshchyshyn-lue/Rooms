@@ -70,7 +70,7 @@ public class RoomController {
 
     @GetMapping("/update/{id}")
     public String edit(@PathVariable("id") int id, Model model) throws NotFoundException {
-        model.addAttribute("com", roomService.findRoomById(id));
+        model.addAttribute("room", roomService.findRoomById(id));
         return "update-room";
     }
 
@@ -86,7 +86,7 @@ public class RoomController {
             e.printStackTrace();
             Room room = roomService.findRoomById(id);
             model.put("message", "Invalid input");
-            model.put("com", room);
+            model.put("room", room);
             return "update-room";
         }
         return "redirect:/rooms";

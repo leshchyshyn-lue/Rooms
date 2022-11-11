@@ -2,13 +2,13 @@
 <html lang="en" xmlns:th="http://thymeleaf.org">
 <head>
     <meta charset="UTF-8">
-    <title>Update com</title>
+    <title>Update room</title>
 </head>
 <body>
 
 <div>
-    <div style="margin-bottom: 5px;" th:text="${com.getPoints}"></div>
-    <form action="#" th:method="POST" th:action="@{/rooms/updated/{id}(id=${com.getId()})}" th:object="${req}">
+    <div style="margin-bottom: 5px;" th:text="${room.getPoints}"></div>
+    <form action="#" th:method="POST" th:action="@{/rooms/updated/{id}(id=${room.getId()})}" th:object="${req}">
         <input type="text" name="req"  placeholder="Enter points">
         <button type="submit">Update!</button>
     </form>

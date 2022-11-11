@@ -36,14 +36,14 @@
 </div>
 
 
-<div class="rooms2" th:each="com, iter : ${rooms}">
+<div class="rooms2" th:each="room, iter : ${rooms}">
     <div class="forCheck">
         <tr>
-            <input class="checkbox" th:value="${com.getPoints}" type="checkbox">
+            <input class="checkbox" th:value="${room.getPoints}" type="checkbox">
             <td th:text="${iter.index + 1}"></td>
-            <td th:text="${com.getPoints}"></td>
-            <td><a th:href="@{/rooms/com-delete/{id}(id=${com.getId})}">Delete</a></td>
-            <td><a th:href="@{/rooms/update/{id}(id=${com.getId})}">Update</a></td>
+            <td th:text="${room.getPoints}"></td>
+            <td><a th:href="@{/rooms/room-delete/{id}(id=${room.getId})}">Delete</a></td>
+            <td><a th:href="@{/rooms/update/{id}(id=${room.getId})}">Update</a></td>
         </tr>
     </div>
 </div>
