@@ -1,16 +1,16 @@
-package room.task.controller;
+package com.example.task.controller;
 
+import com.example.task.exception.NotFoundException;
+import com.example.task.request.RoomRequest;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.transaction.annotation.Transactional;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
-import room.task.entity.Point;
-import room.task.entity.Room;
-import room.task.exception.NotFoundException;
-import room.task.request.RoomRequest;
-import room.task.service.RoomService;
-import room.task.util.RoomValidator;
+import com.example.task.entity.Point;
+import com.example.task.entity.Room;
+import com.example.task.service.RoomService;
+import com.example.task.util.RoomValidator;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -45,8 +45,6 @@ public class RoomController {
         room.setPoints(points);
         return room;
     }
-
-
 
 
     @GetMapping
@@ -94,6 +92,7 @@ public class RoomController {
         return "redirect:/rooms";
     }
 
+    @Transactional
     @GetMapping("/room-delete/{id}")
     public String deleteRoomById(@PathVariable("id") int id) throws NotFoundException {
         roomService.deleteRoomById(id);

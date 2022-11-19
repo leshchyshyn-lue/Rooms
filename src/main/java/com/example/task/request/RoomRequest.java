@@ -1,4 +1,4 @@
-package room.task.request;
+package com.example.task.request;
 
 
 public class RoomRequest {

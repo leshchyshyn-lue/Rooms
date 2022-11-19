@@ -1,0 +1,21 @@
+<component name="ProjectRunConfigurationManager">
+  <configuration default="false" name="RoomServiceTest" type="JUnit" factoryName="JUnit">
+    <module name="roomTest" />
+    <extension name="coverage" track_test_folders="true">
+      <pattern>
+        <option name="PATTERN" value="com.example.task.*" />
+        <option name="ENABLED" value="true" />
+      </pattern>
+    </extension>
+    <option name="PACKAGE_NAME" value="room.task.test" />
+    <option name="MAIN_CLASS_NAME" value="com.example.task.RoomServiceTest" />
+    <option name="METHOD_NAME" value="" />
+    <option name="TEST_OBJECT" value="class" />
+    <option name="TEST_SEARCH_SCOPE">
+      <value defaultName="wholeProject" />
+    </option>
+    <method v="2">
+      <option name="Make" enabled="true" />
+    </method>
+  </configuration>
+</component>
